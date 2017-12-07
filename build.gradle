@@ -48,7 +48,7 @@ subprojects {
 	}
 
 	version = '0.2'
-	group = "com.github.skiedrowski.tools.cdi-properties"
+	group = "com.github.skiedrowski.tools"
 
 	repositories {
 		mavenCentral()

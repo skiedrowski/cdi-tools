@@ -7,7 +7,7 @@ published in my bintray repo
     }
     	
     dependencies {
-     	compile "com.github.skiedrowski.tools.cdi-properties:cdi-properties:$ver.cdi_properties"
+     	compile "com.github.skiedrowski.tools:cdi-properties:$ver.cdi_properties"
     }
 
 Bintray file upload path: `com/github/skiedrowski/tools/cdi-properties/cdi-properties/VERSION`
