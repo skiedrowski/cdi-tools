@@ -47,7 +47,7 @@ subprojects {
 		annotation('com.github.skiedrowski.tools.kotlin.NoArg')
 	}
 
-	version = '0.1-SNAPSHOT'
+	version = '0.1'
 	group = "com.github.skiedrowski.tools.cdi-properties"
 
 	repositories {
