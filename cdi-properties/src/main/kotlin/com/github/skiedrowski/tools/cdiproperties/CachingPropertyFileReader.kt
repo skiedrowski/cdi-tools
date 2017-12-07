@@ -31,7 +31,7 @@ class CachingPropertyFileReader {
         try {
             properties.load(FileInputStream(File(fullFilename)))
         } catch (fnfe: FileNotFoundException) {
-            val logger = Logger.getLogger(CachingPropertyFileReader::class.qualifiedName)
+            val logger = Logger.getLogger(CachingPropertyFileReader::class.java.name)
             logger.log(Level.SEVERE,
                     "could not load properties file from $fullFilename. user.dir is ${System.getProperty("user.dir")}",
                     fnfe)
