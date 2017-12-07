@@ -1,5 +1,17 @@
 # Inject Properties defined in external files using CDI
 
+published in my bintray repo
+
+	repositories {
+    	maven { url "https://dl.bintray.com/skiedrowski/maven" }
+    }
+    	
+    dependencies {
+     	compile "com.github.skiedrowski.tools.cdi-properties:cdi-properties:$ver.cdi_properties"
+    }
+
+Bintray file upload path: `com/github/skiedrowski/tools/cdi-properties/cdi-properties/VERSION`
+
 ## Usage (Kotlin)
 
 Given: a properties file named `my.properties` in the `config dir` of the application with the following contents:
