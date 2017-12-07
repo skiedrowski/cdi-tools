@@ -9,7 +9,6 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.ExpectedException
-import java.io.FileNotFoundException
 import java.lang.reflect.Member
 import javax.enterprise.inject.spi.Annotated
 import javax.enterprise.inject.spi.InjectionPoint
@@ -108,11 +107,12 @@ class PropertyReaderTest {
     }
 
     @Test
-    fun `provideProperty nonexistant file`() {
+    fun `provideStringProperty nonexistant file returns null`() {
         val ip = buildInjectionPoint("öksldfhtest.properties", "hugo")
 
-        thrown.expect(FileNotFoundException::class.java)
-        propertyReader.provideStringProperty(ip)
+        val property = propertyReader.provideStringProperty(ip)
+
+        assertThat(property, absent())
     }
 
     private fun buildInjectionPoint(filename: String, key: String = "", memberName: String? = null): InjectionPoint {

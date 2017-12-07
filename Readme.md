@@ -10,7 +10,7 @@ published in my bintray repo
      	compile "com.github.skiedrowski.tools:cdi-properties:$ver.cdi_properties"
     }
 
-Bintray file upload path: `com/github/skiedrowski/tools/cdi-properties/cdi-properties/VERSION`
+Bintray file upload path: `com/github/skiedrowski/tools/cdi-properties/VERSION`
 
 ## Usage (Kotlin)
 
