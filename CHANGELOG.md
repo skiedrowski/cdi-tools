@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## V0.4
+* CHANGE: refactor maven group and project name for better gradle-composite builds integration
+
 ## V0.3
 * CHANGE: missing properties file does not cause FileNotFoundException. 
   * `PropertiesFromFile` now returns `Properties()`

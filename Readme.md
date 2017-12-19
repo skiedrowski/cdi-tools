@@ -7,12 +7,15 @@ published in my bintray repo
     }
     	
     dependencies {
-     	compile "com.github.skiedrowski.tools:cdi-properties:$ver.cdi_properties"
+     	compile "com.github.skiedrowski.tools.cdi:cdi-properties:$ver.cdi_properties"
     }
 
-Bintray file upload path: `com/github/skiedrowski/tools/cdi-properties/VERSION`
+Bintray file upload path: 
+`com/github/skiedrowski/tools/cdi/MODULE_NAME/VERSION`
+`com/github/skiedrowski/tools/cdi/cdi-properties/VERSION`
 
-## Usage (Kotlin)
+## Module cdi-properties
+### Usage (Kotlin)
 
 Given: a properties file named `my.properties` in the `config dir` of the application with the following contents:
 
@@ -24,7 +27,7 @@ Given: a properties file named `my.properties` in the `config dir` of the applic
 
 The `config dir` is a directory available to the program via the System Property `config.dir`. If this System Property is undefined, the working dir will be used.
 
-### Use Case 1 Inject the whole properties file
+#### Use Case 1 Inject the whole properties file
 	
 	class MyClass 
 		@Inject constructor(@param:PropertiesFromFile("my.properties") private val my: Properties) {
@@ -48,7 +51,7 @@ The `config dir` is a directory available to the program via the System Property
 
 This prints "value1" to the console.
 
-### Use Case 2 Inject a single property
+#### Use Case 2 Inject a single property
 
 	class MyClass {
 	
