@@ -12,7 +12,7 @@ import javax.inject.Qualifier;
 @Target({ ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface PropertyFromFile {
-	/** filename relative to the directory specified in CachingPropertiesReader.CONFIG_DIR_PROPERTY */
+	/** filename relative to the directory specified in CachingPropertyFileReader.CONFIG_DIR_PROPERTY */
 	@Nonbinding String filename() default "config.properties";
 	/** key in property file; if left empty, the name of the member with this annotation is used as the key */
 	@Nonbinding String key() default "";
