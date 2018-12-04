@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## V0.5
+* BUGFIX: add missing beans.xml
+* CHANGE: gradle update
+* CHANGE: Kotlin Update 1.2 -> 1.3.10
+
 ## V0.4
 * CHANGE: refactor maven group and project name for better gradle-composite builds integration
 

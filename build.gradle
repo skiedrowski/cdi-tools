@@ -1,5 +1,5 @@
 buildscript {
-	ext.kotlin_version = '1.2.0'
+	ext.kotlin_version = '1.3.10'
 
 	repositories {
 		mavenCentral()
@@ -26,8 +26,8 @@ subprojects {
 
 	tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
 		kotlinOptions {
-			apiVersion = "1.2"
-			languageVersion = "1.2"
+			apiVersion = "1.3"
+			languageVersion = "1.3"
 			//default suppressWarnings = false
 			//default verbose = false
 			jvmTarget = "1.8"
@@ -47,7 +47,7 @@ subprojects {
 		annotation('com.github.skiedrowski.tools.kt.compiler.noarg.NoArg')
 	}
 
-	version = '0.4'
+	version = '0.5'
 	group = "com.github.skiedrowski.tools.cdi"
 
 	repositories {
