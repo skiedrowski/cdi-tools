@@ -50,8 +50,8 @@ subprojects {
 		annotation('com.github.skiedrowski.tools.kt.compiler.noarg.NoArg')
 	}
 
-//	version = 'NEXT-SNAPSHOT'
-	version = '20210222'
+	version = 'NEXT-SNAPSHOT'
+//	version = '20210222'
 	group = "com.github.skiedrowski.tools.cdi"
 
 	repositories {
