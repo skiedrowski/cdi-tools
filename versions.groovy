@@ -1,5 +1,5 @@
 cdi_api='1.1'
-kt_tools = '0.2'
+kt_tools = '20210222'
 
 //test
 junit = '4.+'
