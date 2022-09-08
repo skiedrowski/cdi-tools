@@ -1,26 +1,18 @@
 package com.github.skiedrowski.tools.cdiproperties
 
-import com.natpryce.hamkrest.absent
-import com.natpryce.hamkrest.assertion.assertThat
-import com.natpryce.hamkrest.equalTo
-import com.nhaarman.mockito_kotlin.doReturn
-import com.nhaarman.mockito_kotlin.mock
-import org.junit.Before
-import org.junit.Rule
-import org.junit.Test
-import org.junit.rules.ExpectedException
+import io.kotest.matchers.shouldBe
+import io.mockk.every
+import io.mockk.mockk
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import java.lang.reflect.Member
 import javax.enterprise.inject.spi.Annotated
 import javax.enterprise.inject.spi.InjectionPoint
 
 class PropertyReaderTest {
-    @JvmField
-    @Rule
-    val thrown: ExpectedException = ExpectedException.none()
-
     private val propertyReader = PropertyReader(CachingPropertyFileReader())
 
-    @Before
+    @BeforeEach
     fun context() {
         System.setProperty(CachingPropertyFileReader.CONFIG_DIR_PROPERTY, "src/test/resources/")
     }
@@ -31,7 +23,7 @@ class PropertyReaderTest {
 
         val property = propertyReader.provideStringProperty(ip)
 
-        assertThat(property, equalTo("value1"))
+        property shouldBe "value1"
     }
 
     @Test
@@ -40,7 +32,7 @@ class PropertyReaderTest {
 
         val property = propertyReader.provideStringProperty(ip)
 
-        assertThat(property, equalTo("12345"))
+        property shouldBe "12345"
     }
 
     @Test
@@ -49,7 +41,7 @@ class PropertyReaderTest {
 
         val property = propertyReader.provideStringProperty(ip)
 
-        assertThat(property, absent())
+        property shouldBe null
     }
 
     @Test
@@ -58,7 +50,7 @@ class PropertyReaderTest {
 
         val property = propertyReader.provideIntProperty(ip)
 
-        assertThat(property, equalTo(12345))
+        property shouldBe 12345
     }
 
     @Test
@@ -67,7 +59,7 @@ class PropertyReaderTest {
 
         val property = propertyReader.provideIntProperty(ip)
 
-        assertThat(property, absent())
+        property shouldBe null
     }
 
     @Test
@@ -76,7 +68,7 @@ class PropertyReaderTest {
 
         val property = propertyReader.provideBoolProperty(ip)
 
-        assertThat(property, equalTo(true))
+        property shouldBe true
     }
 
     @Test
@@ -85,7 +77,7 @@ class PropertyReaderTest {
 
         val property = propertyReader.provideBoolProperty(ip)
 
-        assertThat(property, equalTo(false))
+        property shouldBe false
     }
 
     @Test
@@ -94,7 +86,7 @@ class PropertyReaderTest {
 
         val property = propertyReader.provideBoolProperty(ip)
 
-        assertThat(property, absent())
+        property shouldBe null
     }
 
     @Test
@@ -103,7 +95,7 @@ class PropertyReaderTest {
 
         val property = propertyReader.provideStringProperty(ip)
 
-        assertThat(property, equalTo("yesssss!"))
+        property shouldBe "yesssss!"
     }
 
     @Test
@@ -112,27 +104,28 @@ class PropertyReaderTest {
 
         val property = propertyReader.provideStringProperty(ip)
 
-        assertThat(property, absent())
+        property shouldBe null
     }
 
     private fun buildInjectionPoint(filename: String, key: String = "", memberName: String? = null): InjectionPoint {
-        val propertyFromFile = mock<PropertyFromFile> {
-            on { this.filename } doReturn filename
-            on { this.key } doReturn key
-        }
+        val propertyFromFile = mockk<PropertyFromFile>()
+        every { propertyFromFile.filename } returns filename
+        every { propertyFromFile.key } returns key
 
-        val annotated = mock<Annotated> {
-            on { getAnnotation(PropertyFromFile::class.java) } doReturn propertyFromFile
+        val annotated = mockk<Annotated> {
+            every { getAnnotation(PropertyFromFile::class.java) } returns propertyFromFile
         }
         val member = if (memberName != null) {
-            mock<Member> { on { this.name } doReturn memberName }
+            val m = mockk<Member>()
+            every { m.name } returns memberName
+            m
         } else {
             null
         }
 
-        return mock {
-            on { this.annotated } doReturn annotated
-            on { this.member } doReturn member
-        }
+        val injectionPoint = mockk<InjectionPoint>()
+        every { injectionPoint.annotated } returns annotated
+        every { injectionPoint.member } returns member
+        return injectionPoint
     }
 }
