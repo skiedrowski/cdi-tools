@@ -6,8 +6,8 @@ import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import javax.enterprise.inject.spi.Annotated
-import javax.enterprise.inject.spi.InjectionPoint
+import jakarta.enterprise.inject.spi.Annotated
+import jakarta.enterprise.inject.spi.InjectionPoint
 
 class PropertiesReaderTest {
     private val propertiesReader = PropertiesReader(CachingPropertyFileReader())

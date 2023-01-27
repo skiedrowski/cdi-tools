@@ -1,7 +1,7 @@
 //define prior to mvnpublish plugin config!
 group = "com.github.skiedrowski.tools.cdi"
 //version = "NEXT-SNAPSHOT"
-version = "20220905"
+version = "20220905-jee10"
 
 plugins {
     id("aspect.java11")
@@ -31,11 +31,11 @@ repositories {
 
 dependencies {
     implementation(Deps.kt_tools)
-    compileOnly(Deps.cdi_api)
+    compileOnly(Deps.j_cdi_api)
 
     testFixturesApi(Deps.junit)
     testFixturesApi(Deps.junit_engine)
-    testFixturesApi(Deps.cdi_api)
+    testFixturesApi(Deps.j_cdi_api)
 }
 
 tasks.withType<Test> {

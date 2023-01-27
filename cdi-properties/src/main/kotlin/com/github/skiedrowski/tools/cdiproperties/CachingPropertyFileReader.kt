@@ -8,7 +8,7 @@ import java.io.FileNotFoundException
 import java.util.*
 import java.util.logging.Level
 import java.util.logging.Logger
-import javax.enterprise.context.ApplicationScoped
+import jakarta.enterprise.context.ApplicationScoped
 
 @ApplicationScoped
 @NoArg //or you'll get WELD-001410

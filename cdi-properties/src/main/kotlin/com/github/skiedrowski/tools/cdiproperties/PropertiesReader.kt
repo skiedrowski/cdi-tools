@@ -1,10 +1,10 @@
 package com.github.skiedrowski.tools.cdiproperties
 
 import java.util.*
-import javax.enterprise.context.ApplicationScoped
-import javax.enterprise.inject.Produces
-import javax.enterprise.inject.spi.InjectionPoint
-import javax.inject.Inject
+import jakarta.enterprise.context.ApplicationScoped
+import jakarta.enterprise.inject.Produces
+import jakarta.enterprise.inject.spi.InjectionPoint
+import jakarta.inject.Inject
 
 @ApplicationScoped
 class PropertiesReader @Inject constructor(private val cachingPropertyFileReader: CachingPropertyFileReader) {
