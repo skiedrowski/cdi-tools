@@ -1,7 +1,7 @@
 //define prior to mvnpublish plugin config!
 group = "com.github.skiedrowski.tools.cdi"
 //version = "NEXT-SNAPSHOT"
-version = "20220905-jee10"
+version = "20220905.3-jee10"
 
 plugins {
     id("aspect.java11")
@@ -12,8 +12,8 @@ plugins {
     id("aspect.intern.sourcejar")
     id("aspect.intern.testjar")
     id("aspect.intern.javadocjar")
-    id("aspect.intern.mvnpublish")
-//    id("aspect.intern.mvnpublish_gh")
+//    id("aspect.intern.mvnpublish")
+    id("aspect.intern.mvnpublish_gh")
 }
 
 val config = rootProject.extra["config"] as Map<String, *>
